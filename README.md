@@ -1,4 +1,5 @@
 # BDA
+
 # Practi 2
 
 - insert One & Many
@@ -350,3 +351,87 @@ db.inventory.aggregate([{$match: {iname:"journal"}}])
 ```
 
 # prcti 06
+
+```json
+db.inventory.find()
+```
+
+- Perform map reduce on the data to display the sum of quantities of each record
+
+```json
+var map1=function(){emit(this.iname, this.quant)};
+var reducer1=function(iname,quant){return Array.sum(quant);}
+```
+
+```json
+ db.inventory.mapReduce(map1, reducer1, {out:"newdoc"})
+```
+
+- Perform map reduce to display the average quantites of all items
+
+```json
+var reducer2=function(iname,quant){return Array.avg(quant);}
+```
+
+```json
+db.inventory.mapReduce(map1, reducer2, {out:"newdoc2"})
+db.newdoc2.find()
+```
+
+- Sort the resultant records in descending order
+
+```json
+db.newdoc2.find().sort({value:-1})
+
+```
+
+- Perform Map reduce to display the sum of quantities of records which have quality as ‘A’
+
+```json
+db.inventory.mapReduce(map1, reducer1, {query:{qual:"A"}, out:"newdoc3"})
+```
+
+- DeprecationWarning: Collection.mapReduce() is deprecated. Use an aggregation instead
+
+```json
+db.newdoc3.find()
+```
+
+- Perform map reduce to display the average quantity of all records which have quality as ’A’. Display only the first 2 records
+
+```json
+ db.inventory.mapReduce(map1, reducer2, {query:{qual:"A"}, out:"newdoc3", limit:2});
+
+```
+
+- Create a single index for quantities of items in ascending order
+
+```json
+db.inventory.createIndex({quant:1});
+
+```
+
+- Create an index to store the unit of size and item name both in ascending order and give it a name
+
+```json
+db.inventory.createIndex({"size.unit":1,iname:1},{name:"Size and Name index
+"})
+
+```
+
+- Show all Indexes
+
+```json
+db.inventory.getIndexes()
+
+```
+
+- Delete an index
+
+```json
+db.inventory.dropIndex({quant:1})
+```
+
+```json
+ db.inventory.getIndexes()
+```
