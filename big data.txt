@@ -1,0 +1,83 @@
+# practi 3
+
+insert One
+``` use Blog
+
+db.blog.insert({id:1,title:"New Post",desc:"This is a new post",url:"blog/new-post",postby:"Nihal Siddiqui",likes:200,comments:[{user:"Nihal",message:"Nice Post",added_on:"12-12-2022",likes:100}],tags:[{user:"Rizwan",message:"First Comment",added_on:"02-09-2023",likes:120}]})
+
+```
+
+- insert Many 
+```json
+
+db.blog.insertMany([{id:2,title:"Post 2",desc:"This is post 2",url:"blog/new-post-2",postby:"Rizwan Ansari",likes:250,comments:[{user:"Nihal",message:"Hey",added_on:"06-09-2023",likes:150}],tags:[{user:"Shebel",message:"second post First Comment",added_on:"10-04-2023",likes:100},{user:"Mohsin",added_on:"13-11-2023",likes:0}]},{id:3,title:"Post 3",desc:"This is 3 post",url:"blog/post-4",postby:"Owner",likes:0,comments:[{user:"Aisha",message:"Heyyyy",added_on:"10-11-2023"}],tags:[{user:"Safiya",added_on:"12-12-2023"}]}])
+
+```
+
+- Post having likes greater than or equal to 150
+```json 
+db.blog.find({"likes":{$gte:150}}).pretty()
+
+```
+
+- Comments having likes greater than equal to 150
+
+```json
+db.blog.find({"comments.likes":{$gte:150}}).pretty()
+```
+
+- Find post having id 1 or 3
+```json
+db.blog.find({$or:[{id:1},{id:3}]}).pretty()
+```
+
+- Posts not having likes greater than 100 (not Operator)
+
+```json
+db.blog.find({likes:{$not:{$gt:100}}}).pretty()
+```
+
+- Posts not having ids: 1 and 3 (Nor Operator)
+```json
+db.blog.find({$nor:[{id:1},{id:3}]}).pretty()
+
+```
+
+- Find posts having titles ‘New Post’ and ‘Post 3’ using In Operator
+```json
+db.blog.find({title:{$in:["New Post","Post 3"]}}).pretty()
+```
+
+- Find posts not having titles ‘New Post’ and ‘Post 3’ using In Operator Not and In Operator
+```json
+db.blog.find({title:{$not:{$in:["New Post","Post 3"]}}}).pretty()
+```
+
+- And and ne (not equal to) operator
+```json
+db.blog.find({$and:[{likes:{$ne:50}},{"comments.likes":{$ne:10}}]}).pretty()
+```
+- all operator
+```json
+db.blog.find({postby:{$all:["Sam","Ben"]}}).count()
+```
+
+- regex
+```json
+db.blog.find({"title":{$regex:/2$/}}).pretty()
+```
+- Posts posted by Name Starting with S and ending with i.
+```json
+db.blog.find({postby:{$regex:/^N.*i$/}}).pretty()
+```
+
+Big Data and Analytics - Practical 4
+Aim: To demonstrate Aggregation Pipeline in MongoDB – I.
+Name: Shah Dhruv Kiran	Roll No: KCTBCS059
+Performance date: 15 – 12 – 2022	Sign:
+Create a mongodb schema with name inventory and contains the following attributes.
+Item name
+Quantity
+Size (height, width and unit of measure)
+Quality (having grade from A – E)
+Instock (warehouse [Eg: w1, w2], quantity)
