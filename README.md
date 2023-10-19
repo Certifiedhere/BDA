@@ -190,21 +190,22 @@ db.blog.find({postby:{$regex:/^N.*i$/}}).pretty()
 
 ```json
 insert One
-
 db.inventory.insert({iname:"Ball", quant:30, size:{height:2,width:2,unit:"cm"}, qual:"D",instock:[{whouse:"W4",quantity:20},{whouse:"W2",quantity:10}]});
-
-db.inventory.insert({iname:"Airbrush", quant:12, size:{height:12,width:12,unit:"cm"}, qual:"A",instock:[{whouse:"W1",quantity:8},{whouse:"W4",quantity:4}]});
-
 ```
-
+```json
+db.inventory.insert({iname:"Airbrush", quant:12, size:{height:12,width:12,unit:"cm"}, qual:"A",instock:[{whouse:"W1",quantity:8},{whouse:"W4",quantity:4}]});
+```
 - insert Many
 
 ```json
-db.inventory.insertMany([{iname:"Chairs", quant:6, size:{height:0.5,width:0.5,unit:"m"}, qual:"C",instock:[{whouse:"W3",quantity:3},{whouse:"W7",quantity:2},{whouse: "W10",quantity:1}]} , {iname:"journal", quant:100, size:{height:24,width:16,unit:"cm"}, qual:"B",instock:[{whouse:"W1",quantity:10},{whouse:"W2",quantity:60},{whouse: "W5",quantity:10},{whouse: "W10",quantity:20}]} , {iname:"Erasers ", quant:500, size:{height:40,width:20,unit:"mm"}, qual:"D",instock:[{whouse:"W4",quantity:100},{whouse:"W3",quantity:100},{whouse: "W5",quantity:300}]}]);
-
-db.inventory.insertMany([{iname:"Duster", quant:40, size:{height:0.2,width:0.1,unit:"m"}, qual:"E",instock:[{whouse:"W1",quantity:12},{whouse:"W2",quantity:12},{whouse: "W10",quantity:26}]} , {iname:"Papers", quant:1000, size:{height:24,width:16,unit:"cm"}, qual:"C",instock:[{whouse:"W4",quantity:500},{whouse:"W6",quantity:500}]} , {iname:"Mouse", quant:30, size:{height:10,width:5,unit:"cm"}, qual:"A",instock:[{whouse:"W10",quantity:10},{whouse:"W9",quantity:10},{whouse: "W8",quantity:10}]}]);
-
 db.inventory.insertMany([{iname:"Keyboard", quant:42, size:{height:0.2,width:0.5,unit:"m"}, qual:"A",instock:[{whouse:"W8",quantity:12},{whouse:"W6",quantity:13},{whouse: "W3",quantity:17}]} , {iname:"Stand", quant:350, size:{height:24,width:30,unit:"cm"}, qual:"B",instock:[{whouse:"W4",quantity:250},{whouse:"W6",quantity:100}]}]);
+
+```
+```json
+db.inventory.insertMany([{iname:"Chairs", quant:6, size:{height:0.5,width:0.5,unit:"m"}, qual:"C",instock:[{whouse:"W3",quantity:3},{whouse:"W7",quantity:2},{whouse: "W10",quantity:1}]} , {iname:"journal", quant:100, size:{height:24,width:16,unit:"cm"}, qual:"B",instock:[{whouse:"W1",quantity:10},{whouse:"W2",quantity:60},{whouse: "W5",quantity:10},{whouse: "W10",quantity:20}]} , {iname:"Erasers ", quant:500, size:{height:40,width:20,unit:"mm"}, qual:"D",instock:[{whouse:"W4",quantity:100},{whouse:"W3",quantity:100},{whouse: "W5",quantity:300}]}]);
+```
+```json
+db.inventory.insertMany([{iname:"Duster", quant:40, size:{height:0.2,width:0.1,unit:"m"}, qual:"E",instock:[{whouse:"W1",quantity:12},{whouse:"W2",quantity:12},{whouse: "W10",quantity:26}]} , {iname:"Papers", quant:1000, size:{height:24,width:16,unit:"cm"}, qual:"C",instock:[{whouse:"W4",quantity:500},{whouse:"W6",quantity:500}]} , {iname:"Mouse", quant:30, size:{height:10,width:5,unit:"cm"}, qual:"A",instock:[{whouse:"W10",quantity:10},{whouse:"W9",quantity:10},{whouse: "W8",quantity:10}]}]);
 
 ```
 
