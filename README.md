@@ -2,92 +2,53 @@
 
 # Practi 2
 
-- insert One & Many
-
 ```json
 use msccs
-```
 
-```json
-
+#insert One & Many
 db.kc.insert({roll_no:1,name:"Nihal",sem:5,sgpa:8.87})
-```
 
-```json
 db.kc.insertMany({roll_no:2,name:"Rizwan",sem:5,sgpa:8.99},{roll_no:3,name:"Aisha",sem:5,sgpa:9.56},{roll_no:4,name:"Talib",sem:5,sgpa:5.44},{roll_no:5,name:"Safiya",sem:5,sgpa:10.00})
-```
-```json
+
 db.kc.find()
-```
 
-```json
 db.kc.find().pretty()
-```
-```json
+
 db.kc.find().limit(2)
-```
 
-```json
 db.kc.find().skip(3)
-```
 
-- “AND” Condition ⇒
-
-```json
+#“AND” Condition ⇒
 db.kc.fi nd({$and:[{sem:{$eq:5}},{sgpa:{$eq:3.5}}]})
-```
-
-```json
 db.kc.find({roll_no:4})
-```
 
-- “OR” Condition ⇒
-
-```json
+#“OR” Condition ⇒
 db.kc.find({$or:[{sem:{$eq:5}},{roll_no:{$eq:3}}]})
-```
 
-- Count ⇒
-
-```json
+#Count ⇒
 db.kc.find().count()
-```
 
-- Sort Ascending Order ⇒
-
-```json
+#Sort Ascending Order ⇒
 db.kc.find().sort({name:1})
-```
 
-- Sort Descending Order ⇒
-
-```json
+ #Sort Descending Order ⇒
 db.kc.find().sort({name:-1})
-```
 
-- Update Operation ⇒
-
-```json
+#Update Operation ⇒
 db.kc.update({roll_no:1},{$set:{name:shebel}})
-```
 
-- Update Many ⇒
-
-```json
+# Update Many ⇒
 db.kc.updateMany({sem:{$gt:4}},{$set:{sgpa:9.5}})
-```
 
-- Delete Operation ⇒
-
-```json
+#Delete Operation ⇒
 db.kc.deleteOne({roll_no:3})
-```
 
-- Adding a new record, containing a new attribute named hobbies which contains values in an array.
-
-```json
+#Adding a new record, containing a new attribute named hobbies which contains values in an array.
 db.kc.insert({roll_no:6,name:"Siddiqui",sem:5,sgpa:8.87,hobbies:["football","cricket"]});
+
+
 ```
+
 
 # practi 3
 
