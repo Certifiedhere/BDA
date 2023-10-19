@@ -448,3 +448,119 @@ db.inventory.dropIndex({quant:1})
 ```json
  db.inventory.getIndexes()
 ```
+# Prac 9
+- Open in DB Server Past in Browser
+- Prac only perform only in Browser
+```json
+http://localhost:5984/
+```
+- for open in browser and log in DB
+```json
+http://localhost:5984/_utils
+```
+# prc 10
+
+-  in pract 10 we have to create first DB. here we create 
+-  we have to create `Text View` for filter  data.
+
+```json
+http://admin:admin@localhost:5984/certified/_all_docs
+```
+- After that we have to create `Text View`
+- http://admin:admin@localhost:5984/DB_Name/_design/Name_of_design_url/_view/Schema_name
+```json
+http://admin:admin@localhost:5984/certified/_design/Certifiedinfo/_view/marks
+```
+- Here we first create filter about thing in Map() Function.
+- Perform in Cmd
+  ```json
+  curl http://admin:admin@localhost:5984/certified/_design/Certifiedinfo/_view/TestView
+  ```
+  
+```javascript
+function(doc){
+if(doc.Name.toLowerCase(),doc.Marks);
+}
+}
+```
+# Prac 11 
+- Here We create frist DB from GUI after Perforn future activity
+
+```json
+curl http://admin:admin@localhost:5984/
+```
+` Create Emp DOc
+
+```json
+curl -X PUT http://admin:admin@localhost:5984/emp/001 -H "Content-Type:
+application/json" -d "{\"empid\":\"101\",\"empname\":\"Nihal\",\"salary\":\"5000\"}"
+```
+```json
+curl -X PUT http://admin:admin@localhost:5984/emp/002 -H "Content-Type:
+application/json" -d "{\"empid\":\"102\",\"empname\":\"Ayesh\",\"salary\":6000}"
+```
+```json
+curl -X PUT http://admin:admin@localhost:5984/emp/004 -H "Content-Type:
+application/json" -d "{\"empid\":\"104\",\"empname\":\"Rizwan\",\"salary\":7000}"
+```
+
+```json
+curl -X PUT http://admin:admin@localhost:5984/emp/005 -H "Content-Type:
+application/json" -d "{\"empid\":\"105\",\"empname\":\"Talib\",\"salary\":10000}"
+```
+
+```json
+curl -X PUT http://admin:admin@localhost:5984/emp/006 -H "Content-Type:
+application/json" -d "{\"empid\":\"106\",\"empname\":\"Aisha\",\"salary\":4000}"
+```
+
+```json
+curl -X PUT http://admin:admin@localhost:5984/emp/007 -H "Content-Type:
+application/json" -d "{\"empid\":\"107\",\"empname\":\"Safiya\",\"salary\":9000}"
+```
+- List All Databases:
+
+```json
+curl -X GET http://admin:admin@localhost:5984/_all_dbs
+```
+- Retrieve Employee Document by ID
+```json
+curl -X GET http://admin:admin@localhost:5984/emp/001
+```
+```json
+curl -X GET http://admin:admin@localhost:5984/emp/005
+```
+- List All Documents in the "emp" Database:
+
+```json
+curl -X GET http://admin:admin@localhost:5984/emp/001
+```
+```json
+curl -X GET http://admin:admin@localhost:5984/emp/005
+```
+- List All Documents in the "emp" Database:
+
+```json
+curl -X GET http://admin:admin@localhost:5984/emp/_all_docs
+```
+- Delete Employee Document with Revision:
+
+```json
+curl -X PUT http://admin:admin@localhost:5984/emp/001 -H "Content-Type:
+application/json" -d
+"{\"empid\":\"101\",\"empname\":\"Nihal\",\"salary\":\"50000\",\"yop\":\"5\",\"_rev\":\
+```
+
+```json
+curl -X PUT http://admin:admin@localhost:5984/emp/004 -H "Content-Type:
+application/json" -d
+"{\"empid\":\"104\",\"empname\":\"Rizwan\",\"salary\":\"7000\",\"yop\":\"10\",\"_rev\
+":\"1-20f3b80813fb15c59064116c31f73b23\"}"
+```
+
+
+
+
+
+
+
