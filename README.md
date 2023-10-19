@@ -6,27 +6,39 @@
 
 ```json
 use msccs
+```
+
+```json
 
 db.kc.insert({roll_no:1,name:"Nihal",sem:5,sgpa:8.87})
+```
 
+```json
 db.kc.insertMany({roll_no:2,name:"Rizwan",sem:5,sgpa:8.99},{roll_no:3,name:"Aisha",sem:5,sgpa:9.56},{roll_no:4,name:"Talib",sem:5,sgpa:5.44},{roll_no:5,name:"Safiya",sem:5,sgpa:10.00})
-
+```
+```json
 db.kc.find()
+```
 
+```json
 db.kc.find().pretty()
-
+```
+```json
 db.kc.find().limit(2)
+```
 
+```json
 db.kc.find().skip(3)
-
-db.kc.find({roll_no:4})
-
 ```
 
 - “AND” Condition ⇒
 
 ```json
 db.kc.fi nd({$and:[{sem:{$eq:5}},{sgpa:{$eq:3.5}}]})
+```
+
+```json
+db.kc.find({roll_no:4})
 ```
 
 - “OR” Condition ⇒
